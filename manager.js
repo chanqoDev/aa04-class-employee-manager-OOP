@@ -8,17 +8,38 @@ class Manager extends Employee {
     addEmployee(employee) {
         this.employees.push(employee); 
     }
+    /* 
+    To calculate a Manager's bonus you must sum the salaries of each employee in their employees array.
+    You must also take into account whether each employee is an instance of an Employee,
+        in which case simply add their salary to a sum.
+        // If, they are Managers then process each of their employees and so on. 
+        bonus = (manager's salary + total salary of all employees under them) * multiplier
+    */
+    calculateBonus(multiplier) {
+        const totalSubSalary = this._totalSubSalary(); 
+        const bonus = (this.salary + totalSubSalary) * multiplier; 
+        return bonus; 
+    }
+    // Private helper Function 
+    _totalSubSalary() {
+        return this.employees.reduce((sum, employee) => {
+            if (employee instanceof Manager) {
+                return sum + employee.salary + employee._totalSubSalary(); 
+            } else {
+                return sum + employee.salary; 
+            }
+        }, 0); 
+        // let sum = 0; 
+        // for (const employee of this.employees){
+        //     if (employee instanceof Manager) {
+        //         sum += employee.salary + employee._totalSubSalary(); 
+        //     } else {
+        //         sum += employee.salary; 
+        //     }
+        // }
+        // return sum; 
+    }
 }
-
-const splinter = new Manager('Splinter', 100000, 'Sensei');
-console.log('Before: ', splinter);
-
-const leo = new Employee('Leonardo', 90000, 'Ninja', splinter);
-const mikey = new Employee('Michelangelo', 90000, 'Ninja', splinter);
-const donnie = new Employee('Donatello', 90000, 'Ninja', splinter);
-const raph = new Employee('Raphael', 90000, 'Ninja', splinter);
-
-console.log('After: ', splinter);
 
 
 try {
