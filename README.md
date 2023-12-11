@@ -1,5 +1,20 @@
 # Long Practice: Class Syntax with Employees and Managers
 
+Install Mocha and Chai Assertion Library for Testing 
+
+ `npm install mocha`
+
+DOCS: https://mochajs.org/#installation
+
+
+ `npm install chai`
+
+DOCS : https://www.chaijs.com/api/assert/ 
+
+`npm install`
+
+`npm test`
+
 Now that you've learned about class syntax, commonJs modules, and reading 
 test specs, it's time to bring these skills together!
 
