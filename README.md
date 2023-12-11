@@ -11,8 +11,10 @@ DOCS: https://mochajs.org/#installation
 
 DOCS : https://www.chaijs.com/api/assert/ 
 
+Install node modules
 `npm install`
 
+Run test 
 `npm test`
 
 Now that you've learned about class syntax, commonJs modules, and reading 
